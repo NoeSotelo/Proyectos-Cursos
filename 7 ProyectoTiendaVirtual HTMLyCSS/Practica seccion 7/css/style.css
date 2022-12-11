@@ -1,0 +1,259 @@
+/*Variables para los colores, fuentes etc. 
+se establecen asi para cambios posteriores rapidos*/
+:root {
+    --primario:         #FFEDF2; 
+    --primarioOscuro:   #FFDBE4; 
+    --secundario:       #5D6D7E; 
+    --secundarioOscuro: #34495E; 
+    --blanco:           #ffffff;
+    --negro:            #000000; 
+
+    --fuente: 'Quicksand', sans-serif;
+}
+
+/*NO DEBE DE FALTAR!! 
+Estandariza el tamanio texto 1rem=10px y facilita el Box model y su dimencionamiento*/
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+  *, *:before, *:after {
+    box-sizing: inherit;
+}
+
+/*GLOBALES*/
+body {
+    background-color: var(--primario);
+    font-size: 1.6rem;
+    line-height: 1.5;
+}
+
+p {
+    font-size: 1.8rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--negro);
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    width: 100%;
+}
+
+.contenedor {
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+h1, h2, h3 {
+text-align: center;
+color: var(--secundario);
+font-family: var(--fuente); 
+}  
+
+h1 {font-size: 4rem; } 
+h2 {font-size: 3.2rem; }
+h3 {font-size: 2.4rem; }
+
+/*HEADER*/
+.header {
+    display: flex;
+    justify-content: center;
+}
+.header__logo {
+    margin: 3rem 0;
+} 
+
+/*FOOTER*/ 
+.footer {
+background-color: var(--primarioOscuro);
+padding: 1rem 0;
+margin-top: 2rem;
+}
+.footer__texto {
+text-align: center;
+font-family: var(--fuente);
+text-transform: uppercase;
+font-size: 1.5rem;
+} 
+
+/*NAVEGACION*/
+.navegacion {
+background-color: var(--primarioOscuro);
+padding: 1rem 0;
+display: flex;
+justify-content: center;
+/*gap: 2rem; Da separacion a los elemntos metodo rapido pero no soportado para todos los navegadores*/ 
+}
+.navegacion__enlace {
+font-family: var(--fuente);
+color: var(--blanco);
+font-size: 3rem;
+font-weight: bolder;
+text-transform: uppercase;
+margin-right: 2rem;
+}
+/*.navegacion__enlace:last-of-type {
+    margin-right: 0;
+} forma antigua para dar separacion a los enlances de la navegacion con mas codigo pero mejor soportado*/
+.navegacion__enlace--activo,
+.navegacion__enlace:hover {
+    color: var(--secundario);
+}
+
+/*MAIN*/
+.contenedor__h1 {
+    text-transform: uppercase;
+} 
+/*GRID*/
+.grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+@media (min-width: 768px) {
+    .grid{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+/*PRODUCTOS*/
+.producto {
+background-color: var(--primarioOscuro);
+padding: 1rem;
+}
+
+
+.producto__nombre {
+    font-family: var(--fuente);
+    font-size: 4rem;
+    color: var(--secundarioOscuro);
+    font-weight: bolder;
+    margin: 1rem 0;
+    text-align: center;
+    line-height: 1.2;
+}
+.producto__precio {
+    font-family: var(--fuente);
+    font-size: 2.8rem;
+    font-weight: bolder;
+    color: var(--negro);
+    margin: 1rem 0;
+    text-align: center;
+    line-height: 1.2;
+}
+
+ /*GRAFICOS*/
+.grafico {
+    min-height: 30rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+    grid-column: 1 / 3;
+
+} 
+.grafico--camisas {
+    grid-row: 2 / 3;
+    background-image: url(../img/grafico1.jpg);
+    
+}
+
+.grafico--node {
+    background-image: url(../img/grafico2.jpg);
+    grid-row: 8 / 9;
+}
+@media (min-width: 768px) {
+    .grafico--node {
+        grid-row: 5 / 6;
+        grid-column: 2 / 4;
+
+    }
+}
+
+/*NOSOTROS*/
+.nosotros {
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+    text-align: justify;
+}
+@media (min-width: 768px) {
+    .nosotros {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 2rem;
+    }
+}
+.nosotros__imagen{
+    grid-row: 1/2;
+}
+@media (min-width: 768px) {
+    .nosotros__imagen{
+        grid-column: 2/3;
+    }
+}
+.bloques {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+@media (min-width: 768px) {
+    .bloques {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+.bloque {
+gap: 2rem;
+text-align: center;
+}
+
+.bloque__titulo {
+    margin: 0;
+    text-transform: uppercase;
+}
+
+/*PRODUCTO*/
+@media (min-width: 768PX) {
+    .camisa {
+        text-align: justify;
+        display: grid;
+        grid-template-columns: repeat(2 , 1fr);
+        column-gap: 2rem;
+    } 
+}
+
+.formulario {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 2rem;
+}
+.formulario__campo {
+    /*border-color: var(--primarioOscuro);
+    border-width: 1rem;
+    border-style: solid;*/
+    border: 1rem solid var(--primarioOscuro);
+    background-color: var(--transparent);
+    color: var(--secundarioOscuro);
+    font-size: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 1rem;
+    appearance: none;
+}
+.formulario__submit {
+    color: var(--blanco);
+    background-color: var(--secundario);
+    border: none;
+    font-size: 2rem;
+    font-family: var(--fuente);
+    padding: 2rem;
+    text-transform: uppercase;
+    transition: background-color .3s ease;
+    transition: font-size .3s ease;
+    grid-column: 1 /3;
+
+}
+.formulario__submit:hover {
+    font-size: 2.3rem;
+    cursor: pointer;
+    background-color: var(--secundarioOscuro);
+}
